@@ -8,9 +8,9 @@ CREATE TABLE users
     `birth`           varchar(45)     NOT NULL, 
     `social_id`       int             NULL, 
     `social_type_id`  int             NULL, 
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
     CONSTRAINT  FOREIGN KEY (social_type_id)
-        REFERENCES social_types (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+        REFERENCES social_types (id) ON DELETE RESTRICT ON UPDATE RESTRICT
 );
 
 
