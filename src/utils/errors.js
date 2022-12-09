@@ -8,15 +8,13 @@ const globalErrorHandler = (err, req, res, next) => {
   console.error(err.stack);
 
   err.statusCode = err.statusCode || 500;
-
   res.status(err.statusCode).json({ message: err.message });
 };
 
-const errorHandler = (errorMessage, errorCode) => {
+const errorObject = (errorMessage, errorCode) => {
   const err = new Error(errorMessage);
   err.statusCode = errorCode;
   throw err;
 }
 
-
-module.exports = { catchAsync, globalErrorHandler, errorHandler };
+module.exports = { catchAsync, globalErrorHandler, errorObject };
