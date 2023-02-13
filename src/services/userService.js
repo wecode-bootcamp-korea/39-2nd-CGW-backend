@@ -1,7 +1,6 @@
 const userDao = require("../models/userDao");
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
-const qs = require("qs");
 
 const signinWithKakao = async (code) => {
   const requestTokenToKakao = {
@@ -10,12 +9,12 @@ const signinWithKakao = async (code) => {
     headers: {
       "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
     },
-    data: qs.stringify({
+    data: {
       client_id: "b0b0a32482b4cef586121097d9d601cf",
       code: code,
       grant_type: "authorization_code",
       redirect_uri: "http://localhost:3000/login/oauth",
-    }),
+    },
   };
   const response = await axios(
     requestTokenToKakao,
